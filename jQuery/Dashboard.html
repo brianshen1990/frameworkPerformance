@@ -1,0 +1,41 @@
+<html>
+<head>
+  <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>
+	<link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+  <script type="text/javascript">
+    $(document).ready(function(){
+      let html = '';
+      html += (`<div class="tabs">
+        <ul>
+          <li><a href="#fragment-1">One</a></li>
+          <li><a href="#fragment-2">Two</a></li>
+          <li><a href="#fragment-3">Three</a></li>
+        </ul>
+        <div id="fragment-1">
+            fragment-1
+        </div>
+        <div id="fragment-2">
+            fragment-2
+        </div>
+        <div id="fragment-3">
+            fragment-3
+        </div>
+      </div>`);
+      
+      $("#renderTest").html(html);
+      $( ".tabs" ).tabs({});
+      // $("#renderTest button").button();
+    });
+  </script>
+</head>
+<body>
+  <div>
+    <a href="./index.html">渲染性能测试</a>
+    <a href="./dashboard.html">跳转性能</a>
+    <a href="./security.html">安全测试</a>
+  </div>
+  <div id="renderTest">
+  </div>
+</body>
+</html>

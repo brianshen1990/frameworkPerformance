@@ -1,0 +1,32 @@
+<html>
+<head>
+  <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>
+	<link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+    });
+    const search = function(){
+      $("#content").html( $("#search").val() );
+    }
+  </script>
+</head>
+<body>
+  <div>
+    <a href="./index.html">渲染性能测试</a>
+    <a href="./dashboard.html">跳转性能</a>
+    <a href="./security.html">安全测试</a>
+  </div>
+  <div id="renderTest">
+    You can input <br />
+    <code>&lt;script&gt;alert("I take over the browser now!")&lt;/script&gt;</code>
+    <br ><br >
+    <input type="text" id="search" style="width:500px;"> <button onclick="search()">Search</button>
+    <br>
+    You serach content: <div id="content"></div>
+    <br ><br ><br ><br ><br >
+    
+  </div>
+</body>
+</html>

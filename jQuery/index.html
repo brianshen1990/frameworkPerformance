@@ -1,0 +1,46 @@
+<html>
+
+<head>
+  <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>
+	<link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+  <script type="text/javascript">
+    const renderNow = function(){
+      let html = '';
+      for(let i = 0; i < 1000; i++) {
+        html += (`<div class="tabs">
+          <ul>
+            <li><a href="#fragment${i}-1">One</a></li>
+            <li><a href="#fragment${i}-2">Two</a></li>
+            <li><a href="#fragment${i}-3">Three</a></li>
+          </ul>
+          <div id="fragment${i}-1">
+              fragment${i}-1
+          </div>
+          <div id="fragment${i}-2">
+              fragment${i}-2
+          </div>
+          <div id="fragment${i}-3">
+              fragment${i}-3
+          </div>
+        </div>`);
+      }
+      $("#renderTest").html(html);
+      $( ".tabs" ).tabs({});
+      // $("#renderTest button").button();
+    };
+  </script>
+</head>
+<body>
+  <div>
+    <a href="./index.html">渲染性能测试</a>
+    <a href="./dashboard.html">跳转性能</a>
+    <a href="./security.html">安全测试</a>
+  </div>
+
+  <button onclick="renderNow()">Render</button>
+  <div id="renderTest">
+
+  </div>
+</body>
+</html>
