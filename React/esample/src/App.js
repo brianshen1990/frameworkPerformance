@@ -72,7 +72,7 @@ class Dashboard extends Component {
   render() {
     return (
       <div style={{margin:'15px'}}>
-        <Button onClick={this.renderTest}>Render Test</Button> <br /><br />
+        <Button onClick={this.renderTest}>点击渲染1000个Tab</Button> <br /><br />
         <div>
           { this.renderHa() }
         </div>
@@ -87,7 +87,7 @@ class AnotherPage extends Component {
     this.state = {};
   }
   render() {
-    return <div style={{margin: '10px'}}>
+    return <div style={{margin: '15px'}}>
         <OneTab number={"anotherPage"}></OneTab>
       </div>;
   }
@@ -114,13 +114,14 @@ class SecurityPage extends Component {
     });
   }
   render() {
-    return (<div style={{margin: '10px'}}>
-      You can input
+    return (<div style={{margin: '15px'}}>
+      你可以输入 <br />
+      <code>Aiainfo</code> 或者 <br />
       <code>&lt;script&gt;alert("I take over the browser now!")&lt;/script&gt;</code>
       <Input type="text" value={this.state.input} onChange={this.change} />
-      <Button onClick={this.search}>Search</Button>
+      <Button onClick={this.search}>搜索</Button>
       <br />
-      You search content: 
+      你搜索的内容为: 
       <span> {this.state.inputShow} </span>
     </div>)
   }
@@ -137,12 +138,12 @@ class App extends Component {
           <Nav navbar>
             <NavItem>
               <Button color="link">
-                <Link to="/dashboard">渲染性能测试</Link>
+                <Link to="/dashboard">响应速度</Link>
               </Button>
             </NavItem>
             <NavItem>
               <Button color="link">
-                <Link to="/testAnother">跳转性能测试</Link>
+                <Link to="/testAnother">跳转速度</Link>
               </Button>
             </NavItem>
             <NavItem>
@@ -150,11 +151,17 @@ class App extends Component {
                 <Link to="/security">安全测试</Link>
               </Button>
             </NavItem>
+            <NavItem>
+              <Button color="link">
+                <a target="_blank" href="./jquery/index.html">打开jQuery</a>
+              </Button>
+            </NavItem>
           </Nav>
         </Navbar>
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/testAnother" component={AnotherPage} />
-        <Route path="/security" component={SecurityPage} />
+        <Route exact path="/" component={Dashboard}/>
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/testAnother" component={AnotherPage} />
+        <Route exact path="/security" component={SecurityPage} />
       </div>);
   }
 }
